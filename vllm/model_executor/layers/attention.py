@@ -209,7 +209,7 @@ class PagedAttention(nn.Module):
 
         # Wait until the cache op is done.
         if cache_event is not None:
-            cache_event.wait()
+            cache_event.wait(input_metadata.cache_stream)
 
         # Reshape the keys and values and store them in the cache.
         # When key_cache and value_cache are not provided, the new key
