@@ -250,6 +250,7 @@ class Worker:
             context_lens=context_lens_tensor,
             max_context_len=max_context_len,
             block_tables=block_tables_tensor,
+            cache_stream=self.cache_engine.cache_stream if self.cache_engine else None,
         )
         return tokens_tensor, positions_tensor, input_metadata
 
